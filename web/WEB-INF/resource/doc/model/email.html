@@ -1,0 +1,393 @@
+<!--
+###############################################################
+###############################################################
+##
+##  AUTO GENERATED - DO NOT EDIT
+##
+###############################################################
+###############################################################
+-->
+
+<html>
+<head>
+  <title>email</title>
+  <link rel="StyleSheet" type="text/css" href="../style.css">
+</head>
+<body>
+<h1>email</h1>
+
+${model.f_comment}<br>
+<br>
+
+<table cellspacing=0 cellpadding=3 border=1>
+<tr>
+  <th>Attribute</th>
+  <th>Help / Comment</th>
+  <th>Format</th>
+  <th>Attributes</th>
+</tr>
+<tr>
+  <td>uid&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        The globally unique identifier.  This is a big ugly number and is generally not displayed.<br>
+            &nbsp;
+  </td>
+  
+  <td>uid
+        <br><nobr>max length: 30</nobr>           <br>allows(
+                      printable
+            )
+      </td>
+  <td>
+            pk<br>                required<br>           &nbsp;
+  </td>
+</tr>
+<tr>
+  <td>createdUtcTs&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        The date and time when this email was created.<br>
+            &nbsp;
+  </td>
+  
+  <td>timestamp
+              </td>
+  <td>
+                   required<br>           &nbsp;
+  </td>
+</tr>
+<tr>
+  <td>sentUtcTs&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        The date and time when the email was last sent.<br>
+            &nbsp;
+  </td>
+  
+  <td>timestamp
+              </td>
+  <td>
+                         &nbsp;
+  </td>
+</tr>
+<tr>
+  <td>subject&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        The subject line.<br>
+            &nbsp;
+  </td>
+  
+  <td>text100
+        <br><nobr>max length: 100</nobr>           <br>allows(
+                      printable
+            )
+      </td>
+  <td>
+                         &nbsp;
+  </td>
+</tr>
+<tr>
+  <td>fromAddress&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        The from address.<br>
+            &nbsp;
+  </td>
+  
+  <td>email
+        <br><nobr>max length: 50</nobr>           <br>allows(
+                      printable
+            )
+      </td>
+  <td>
+                         &nbsp;
+  </td>
+</tr>
+<tr>
+  <td>statusCode&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        The status: draft, ready, pending, sent, error, ignored.<br>
+            &nbsp;
+  </td>
+  
+  <td>letterCode
+        <br><nobr>max length: 1</nobr>           <br>allows(
+                      letters
+            )
+      </td>
+  <td>
+                   required<br>           &nbsp;
+  </td>
+</tr>
+<tr>
+  <td>errorNotes&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        Any notes about the error condition.<br>
+            &nbsp;
+  </td>
+  
+  <td>multiline100
+        <br><nobr>max length: 100</nobr>           <br>allows(
+                      printable
+                        ,&nbsp;
+                whitespace
+            )
+      </td>
+  <td>
+                         &nbsp;
+  </td>
+</tr>
+<tr>
+  <td>recipientSummary&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        A summary of the recipients.<br>
+            &nbsp;
+  </td>
+  
+  <td>notes
+        <br><nobr>max length: 1000</nobr>           <br>allows(
+                      printable
+                        ,&nbsp;
+                whitespace
+            )
+      </td>
+  <td>
+                         &nbsp;
+  </td>
+</tr>
+<tr>
+  <td>toAddressesLabel&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        A summary of the to addresses.<br>
+            &nbsp;
+  </td>
+  
+  <td>notes
+        <br><nobr>max length: 1000</nobr>           <br>allows(
+                      printable
+                        ,&nbsp;
+                whitespace
+            )
+      </td>
+  <td>
+                         &nbsp;
+  </td>
+</tr>
+<tr>
+  <td>ccAddressesLabel&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        A summary of the to addresses.<br>
+            &nbsp;
+  </td>
+  
+  <td>notes
+        <br><nobr>max length: 1000</nobr>           <br>allows(
+                      printable
+                        ,&nbsp;
+                whitespace
+            )
+      </td>
+  <td>
+                         &nbsp;
+  </td>
+</tr>
+<tr>
+  <td>partsAsHtml&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        A summary of the parts, suitable for html literals.<br>
+            &nbsp;
+  </td>
+  
+  <td>notes
+        <br><nobr>max length: 1000</nobr>           <br>allows(
+                      printable
+                        ,&nbsp;
+                whitespace
+            )
+      </td>
+  <td>
+                         &nbsp;
+  </td>
+</tr>
+<tr>
+  <td>lockVersion&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        This is used to coordinate optimistic locking in the database. This is usually not displayed.<br>
+            &nbsp;
+  </td>
+  
+  <td>lockVersion
+              </td>
+  <td>
+                         &nbsp;
+  </td>
+</tr>
+<tr>
+  <td>statusName&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        The status: draft, ready, pending, sent, error, ignored.<br>
+            &nbsp;
+  </td>
+  
+  <td>name
+        <br><nobr>max length: 50</nobr>           <br>allows(
+                      printable
+            )
+      </td>
+  <td>
+                         &nbsp;
+  </td>
+</tr>
+<tr>
+  <td>createdLocalTs&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        The date and time when this email was created.<br>
+            &nbsp;
+  </td>
+  
+  <td>timestamp
+              </td>
+  <td>
+                         &nbsp;
+  </td>
+</tr>
+<tr>
+  <td>createdLocalTsMessage&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        The date and time when this email was created.<br>
+            &nbsp;
+  </td>
+  
+  <td>text100
+        <br><nobr>max length: 100</nobr>           <br>allows(
+                      printable
+            )
+      </td>
+  <td>
+                         &nbsp;
+  </td>
+</tr>
+<tr>
+  <td>createdLocalDate&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        The date and time when this email was created.<br>
+            &nbsp;
+  </td>
+  
+  <td>date
+              </td>
+  <td>
+                         &nbsp;
+  </td>
+</tr>
+<tr>
+  <td>createdLocalTime&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        The date and time when this email was created.<br>
+            &nbsp;
+  </td>
+  
+  <td>time
+              </td>
+  <td>
+                         &nbsp;
+  </td>
+</tr>
+<tr>
+  <td>sentLocalTs&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        The date and time when the email was last sent.<br>
+            &nbsp;
+  </td>
+  
+  <td>timestamp
+              </td>
+  <td>
+                         &nbsp;
+  </td>
+</tr>
+<tr>
+  <td>sentLocalTsMessage&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        The date and time when the email was last sent.<br>
+            &nbsp;
+  </td>
+  
+  <td>text100
+        <br><nobr>max length: 100</nobr>           <br>allows(
+                      printable
+            )
+      </td>
+  <td>
+                         &nbsp;
+  </td>
+</tr>
+<tr>
+  <td>sentLocalDate&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        The date and time when the email was last sent.<br>
+            &nbsp;
+  </td>
+  
+  <td>date
+              </td>
+  <td>
+                         &nbsp;
+  </td>
+</tr>
+<tr>
+  <td>sentLocalTime&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        The date and time when the email was last sent.<br>
+            &nbsp;
+  </td>
+  
+  <td>time
+              </td>
+  <td>
+                         &nbsp;
+  </td>
+</tr>
+</table>
+
+</body>
+</html>

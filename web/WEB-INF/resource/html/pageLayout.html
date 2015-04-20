@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<!--
+Application: ${applicationName}
+Version: ${applicationVersion}
+-->
+
+<html>
+<head>
+    <title>${applicationName}</title>
+    
+    <meta http-equiv="Content-Type"     content="text/html; charset=UTF-8">
+    <meta http-equiv="Cache-Control"    content="no-cache">
+    <meta http-equiv="Pragma"           content="no-cache">
+    <meta http-equiv="Expires"          content="-1">
+
+    <!-- Assumes ROOT (implied) servlet context -->    
+    <script type="text/javascript" src ="/static/${versionFolder}/kodemore/loader/kmResourceLoader.js"></script>
+    <script type="text/javascript" src ="/static/${versionFolder}/app/common/script/myResourceLoader.js"></script>
+
+    <script type="text/javascript">
+        var App = {};
+        
+        App.load = function()
+        {
+            var version = "${versionFolder}";
+            
+            var options = 
+            { 
+                title: "${applicationName}",
+                onComplete: App.init
+            };
+            
+            MyResourceLoader.loadAppResources(options, version);
+        }
+
+        App.init = function()
+        {
+            KmDropdownMenu.installAutoClose();  
+            KmTimeAgo.init();
+            
+            KmNavigator.defaultTitle = "${applicationName}";
+            KmNavigator.init(
+            {
+                url: "${query}"
+            });
+        }
+    </script>
+</head>
+
+<body onload="App.load();" class="${bodyClass}">
+${html}
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+    <script type="text/javascript" src ="../static/version/kodemore/loader/kmResourceLoader.js"></script>
+    <script type="text/javascript" src ="../static/version/app/common/script/myResourceLoader.js"></script>
+
+    <script type="text/javascript">
+
+        function myLoad()
+        {
+            MyResourceLoader.loadTestResources(
+            {
+                onComplete: myInstall
+            });
+        }
+        
+        function myInstall()
+        {
+            $('#main').fadeIn();
+        }
+        
+    </script>
+
+    <style type="text/css">
+    
+        .myTop
+        {
+            font-size: 20px;
+            background: #888;
+        }
+        
+        .myFade
+        {
+            font-size: 20px;
+            background: linear-gradient(to bottom,  #888,  #fff);
+        }
+        
+        .myBottom
+        {
+            font-size: 20px;
+            background: #fff;
+        }
+        
+        .multicolor
+        {
+            background: linear-gradient(to right, white, yellow, blue, red, green, black);
+        }
+        
+    </style>
+
+</head>
+
+<body onload="myLoad()">
+
+<div id="main" style="display:none">
+
+    <div class="boxGreen pad margin">
+        This demonstrates the css gradient effect available in FF6+ and Chrome.
+        It also works with IE10+.
+    </div>
+    
+    <div class='margin border'>
+      <div class="myTop pad">The top band.  Solid color.</div>
+      <div class="myFade pad">The middle band.  Gradient fade effect.</div>
+      <div class="myBottom pad">The bottom band.  Solid color.</div>
+    </div>
+
+    <br>
+
+    <div class="border pad margin multicolor borderRounded">
+        A left to right gradient with multiple colors.
+    </div>
+
+    <br>
+
+    <div class="gap">
+    
+        <div class="boxGreen pad">
+            The following also use css, but use a background image with a gradient tranparency
+            rather than using the "gradient" css attribute.  Css background images are more 
+            consistently supported across multiple browsers.  Also, this approach is actually
+            simpler, in terms of the css declarations.
+        </div>
+
+        <div class="box clearfix">
+            <div class="height100 width200 floatLeft"
+                 style="background: white url(i/blackFadeDown100.png) repeat-x 0 0">
+            </div>
+            <div>Fade down to black 200, height 100.</div>
+        </div>
+
+<!-- height 50 -->
+            
+        <div class="box clearfix">
+            <div class="height50 width200 floatLeft"
+                 style="background: white url(i/blackFadeDown100.png) repeat-x 0 0">
+            </div>
+            <div>Fade down to black 100, height 50.</div>
+        </div>
+        
+        <div class="box clearfix">
+            <div class="height50 width200 floatLeft"
+                 style="background: white url(i/blackFadeDown100.png) repeat-x 0 -25px">
+            </div>
+            <div>Fade down to black 100, height 50, offset -25.</div>
+        </div>
+        
+        <div class="box clearfix">
+            <div class="height50 width200 floatLeft"
+                 style="background: white url(i/blackFadeDown100.png) repeat-x 0 -50px">
+            </div>
+            <div>Fade down to black 100, height 50, offset -50.</div>
+        </div>
+
+<!-- height 25 -->
+
+        <div class="box clearfix">
+            <div class="height25 width200 floatLeft"
+                 style="background: white url(i/blackFadeDown100.png) repeat-x 0 0">
+            </div>
+            <div>Fade down to black 100, height 25.</div>
+        </div>
+        
+        <div class="box clearfix">
+            <div class="height25 width200 floatLeft"
+                 style="background: white url(i/blackFadeDown100.png) repeat-x 0 -25px">
+            </div>
+            <div>Fade down to black 100, height 25, offset -25.</div>
+        </div>
+        
+        <div class="box clearfix">
+            <div class="height25 width200 floatLeft"
+                 style="background: white url(i/blackFadeDown100.png) repeat-x 0 -50px">
+            </div>
+            <div>Fade down to black 100, height 25, offset -50.</div>
+        </div>
+
+        <div class="box clearfix">
+            <div class="height25 width200 floatLeft"
+                 style="background: white url(i/blackFadeDown100.png) repeat-x 0 -75px">
+            </div>
+            <div>Fade down to black 100, height 25, offset -75.</div>
+        </div>
+
+
+        
+    </div>
+    
+</div>
+</body>
+</html>

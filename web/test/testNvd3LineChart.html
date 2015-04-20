@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+    <script type="text/javascript" src ="../static/version/kodemore/loader/kmResourceLoader.js"></script>
+    <script type="text/javascript" src ="../static/version/app/common/script/myResourceLoader.js"></script>
+    
+    <script type="text/javascript">
+
+        function myLoad()
+        {
+            MyResourceLoader.loadTestResources(
+            {
+                onComplete: myInstall
+            });
+        }
+        
+        function myInstall()
+        {
+            installLineChart();
+            
+            $("#main").show();
+        }
+
+        function installLineChart()
+        {
+            nv.addGraph(function() 
+            {
+                var chart;
+                chart = nv.models.lineChart().useInteractiveGuideline(true);
+                
+                chart.margin(
+                {
+                    left: 100
+                });
+                
+                chart.xAxis.axisLabel('Time');
+                chart.xAxis.tickFormat(d3.format(',.1f'));
+                
+                chart.yAxis.axisLabel('Voltage');
+                chart.yAxis.tickFormat(d3.format(',.2f'));
+                
+                var e;
+                e = d3.select('#lineChart > svg');
+                e.datum(getChartData());
+                e.transition().duration(250);
+                e.call(chart);
+                
+                nv.utils.windowResize(chart.update);
+                
+                return chart;
+            });
+        }
+        
+        function getChartData() 
+        {
+            var arr = [];
+            
+            arr.push(
+            {
+                key:    "Sine Wave",
+                values: getSinePoints(),
+                color:  "#f44",
+                area:   true
+            });
+            
+            arr.push(
+            {
+                key:    "Cosine Wave",
+                values: getCosinePoints(),
+                color: "#2a2"
+            });
+            
+            return arr;
+        }
+
+        function getSinePoints() 
+        {
+            var arr = [];
+            for ( var i=0; i<200; i++ ) 
+            {
+                arr.push(
+                {
+                    x: i, 
+                    y: Math.sin(i/10) 
+                });
+            }
+            return arr;
+        }
+        
+        function getCosinePoints() 
+        {
+            var arr = [];
+            for ( var i=0; i<200; i++ ) 
+            {
+                arr.push(
+                {
+                    x: i,
+                    y: Math.cos(i/10) * 0.5 
+                });
+            }
+            return arr;
+        }
+        
+        function myToggle()
+        {
+            $('#lineChart').toggle();
+        }
+        
+        function myUpdate()
+        {
+            var n = nv.graphs.length;
+            for ( var i=0; i<n; i++)
+                nv.graphs[i].update();
+        }
+        
+    </script>
+
+    <style type="text/css">
+
+        .xChart
+        {
+            position: absolute;
+            left:    50px;
+            right:   50px;
+            top:    100px;
+            bottom:  50px;
+            border: 1px solid blue;
+        }
+
+    </style>
+
+</head>
+
+<body onload='myLoad();'>
+<div id="main" style="display:none">
+
+    <div class='boxBlue pad'>
+        This is a test of the NVD3 javascript chart tool. Specifically the Line chart.
+    </div>
+    
+    <div class="buttonGap">
+        <button onclick='location.reload();'>reload</button>
+        <button onclick='myToggle();'>Toggle</button>
+        <button onclick='myUpdate();'>Update</button>
+    </div>
+    
+    <div id="lineChart" class="xChart">
+        <svg></svg>
+    </div>
+    
+</body>
+</html>

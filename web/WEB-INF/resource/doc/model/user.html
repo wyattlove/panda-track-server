@@ -1,0 +1,226 @@
+<!--
+###############################################################
+###############################################################
+##
+##  AUTO GENERATED - DO NOT EDIT
+##
+###############################################################
+###############################################################
+-->
+
+<html>
+<head>
+  <title>user</title>
+  <link rel="StyleSheet" type="text/css" href="../style.css">
+</head>
+<body>
+<h1>user</h1>
+
+${model.f_comment}<br>
+<br>
+
+<table cellspacing=0 cellpadding=3 border=1>
+<tr>
+  <th>Attribute</th>
+  <th>Help / Comment</th>
+  <th>Format</th>
+  <th>Attributes</th>
+</tr>
+<tr>
+  <td>uid&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        The global unique key.  This is a big ugly number and is usually not displayed.<br>
+            &nbsp;
+  </td>
+  
+  <td>uid
+        <br><nobr>max length: 30</nobr>           <br>allows(
+                      printable
+            )
+      </td>
+  <td>
+            pk<br>                required<br>           &nbsp;
+  </td>
+</tr>
+<tr>
+  <td>name&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        The user's full name.  E.g.: \"John Doe\".<br>
+            &nbsp;
+  </td>
+  
+  <td>name
+        <br><nobr>max length: 50</nobr>           <br>allows(
+                      printable
+            )
+      </td>
+  <td>
+                   required<br>           &nbsp;
+  </td>
+</tr>
+<tr>
+  <td>email&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        Used both to sign in, and to send emails to this user.<br>
+                <br><i>Comment</i><br>
+        Note: this must be unique across the entire system, not just the project.
+        &nbsp;
+  </td>
+  
+  <td>email
+        <br><nobr>max length: 50</nobr>           <br>allows(
+                      printable
+            )
+      </td>
+  <td>
+                   required<br>           &nbsp;
+  </td>
+</tr>
+<tr>
+  <td>phone&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        The number that may be used to contact this user.<br>
+            &nbsp;
+  </td>
+  
+  <td>phone
+        <br><nobr>max length: 30</nobr>           <br>allows(
+                      printable
+            )
+      </td>
+  <td>
+                         &nbsp;
+  </td>
+</tr>
+<tr>
+  <td>verified&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        Indicates if this user's email address has been verified. We require the email address to be verified before the user is allowed to log in.<br>
+            &nbsp;
+  </td>
+  
+  <td>boolean
+              </td>
+  <td>
+                   required<br>           &nbsp;
+  </td>
+</tr>
+<tr>
+  <td>passwordSalt&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        The salt used for this user. Each user has a different salt. The salt is set to a random value when the user is created, and should never be changed.<br>
+            &nbsp;
+  </td>
+  
+  <td>uid
+        <br><nobr>max length: 30</nobr>           <br>allows(
+                      printable
+            )
+      </td>
+  <td>
+                   required<br>           &nbsp;
+  </td>
+</tr>
+<tr>
+  <td>passwordHash&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        The password sha hash used to authenticate the user. The actual password is not stored. If the user has no password the hash is set to empty string.<br>
+            &nbsp;
+  </td>
+  
+  <td>shaHash
+        <br><nobr>max length: 40</nobr>           <br>allows(
+                      printable
+            )
+      </td>
+  <td>
+                         &nbsp;
+  </td>
+</tr>
+<tr>
+  <td>timeZoneCode&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        The user's preferred time zone.<br>
+            &nbsp;
+  </td>
+  
+  <td>timeZoneCode
+        <br><nobr>max length: 5</nobr>           <br>allows(
+                      printable
+            )
+      </td>
+  <td>
+                         &nbsp;
+  </td>
+</tr>
+<tr>
+  <td>roleCode&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        The global access role.  E.g.: Admin, Developer, or Other.<br>
+            &nbsp;
+  </td>
+  
+  <td>letterCode
+        <br><nobr>max length: 1</nobr>           <br>allows(
+                      letters
+            )
+      </td>
+  <td>
+                   required<br>           &nbsp;
+  </td>
+</tr>
+<tr>
+  <td>lockVersion&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        This is used to coordinate optimistic locking in the database. This is usually not displayed.<br>
+            &nbsp;
+  </td>
+  
+  <td>lockVersion
+              </td>
+  <td>
+                         &nbsp;
+  </td>
+</tr>
+<tr>
+  <td>roleName&nbsp;</td>
+  
+  <td>
+            <i>Help</i><br>
+        The global access role.  E.g.: Admin, Developer, or Other.<br>
+            &nbsp;
+  </td>
+  
+  <td>name
+        <br><nobr>max length: 50</nobr>           <br>allows(
+                      printable
+            )
+      </td>
+  <td>
+                         &nbsp;
+  </td>
+</tr>
+</table>
+
+</body>
+</html>

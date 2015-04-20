@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+    <script type="text/javascript" src ="../static/version/kodemore/loader/kmResourceLoader.js"></script>
+    <script type="text/javascript" src ="../static/version/app/common/script/myResourceLoader.js"></script>
+
+    <script type="text/javascript">
+
+        function myLoad()
+        {
+            MyResourceLoader.loadTestResources(
+            {
+                onComplete: myInstall
+            });
+        }
+        
+        function myInstall()
+        {
+            Kmu.show('#main');
+        }
+        
+        function mySetSource()
+        {
+            $("#myFrame").attr("src", "http://css3button.net");
+        }
+        
+        function myToggleFrame()
+        {
+            $("#myFrame").slideToggle();
+        }
+        
+        function myToggleDiv()
+        {
+            $("#myDiv").slideToggle();
+        }
+        
+    </script>
+
+    <style type="text/css">
+    </style>
+
+</head>
+
+<body onload="myLoad()">
+<div id="main" style="display:none" class="gap">
+
+    <div class="boxBlue gap">
+        <button onclick="mySetSource();">set</button>
+        <button onclick="myToggleDiv();">toggle div</button>
+        <button onclick="myToggleFrame();">toggle frame</button>
+    </div>
+    
+    <!-- the 2px padding is used to offset the frame's border width -->
+    <div id="myDiv" style="padding-right:2px;">
+        <iframe 
+            id="myFrame"
+            class="widthFull height400 borderBlue"
+            scrolling="auto" 
+            >
+        </iframe>
+    </div>
+    
+</div>
+</body>
+</html>

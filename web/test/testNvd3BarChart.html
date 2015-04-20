@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+    <script type="text/javascript" src ="../static/version/kodemore/loader/kmResourceLoader.js"></script>
+    <script type="text/javascript" src ="../static/version/app/common/script/myResourceLoader.js"></script>
+    
+    <script type="text/javascript">
+
+        function myLoad()
+        {
+            MyResourceLoader.loadTestResources(
+            {
+                onComplete: myInstall
+            });
+        }
+        
+        function myInstall()
+        {
+            $("#main").show();
+            
+            installBarChart();
+        }
+
+        function installBarChart()
+        {
+            nv.addGraph(function() 
+            {
+                var chart;
+                chart = nv.models.discreteBarChart();
+                
+                chart.x(function(d) { return d.label });
+                chart.y(function(d) { return d.value });
+                chart.staggerLabels(true);
+                chart.tooltips(true);
+                    
+                d3.select('#barChart svg')
+                    .datum(barChartData())
+                    .transition().duration(500)
+                    .call(chart);
+
+                nv.utils.windowResize(chart.update);
+
+                return chart;
+            });
+        }
+        
+        function barChartData() 
+        {
+            return 
+            [
+                {
+                    key: "Math",
+                    values: 
+                    [
+                        { 
+                            "label" : "Pi",
+                            "value" : 3.14159
+                        },
+                         
+                        { 
+                            "label" : "Phi", 
+                            "value" : 1.618
+                        }, 
+                        
+                        { 
+                            "label" : "e", 
+                            "value" : 2.718
+                        },
+                         
+                        { 
+                            "label" : "-1", 
+                            "value" : -1
+                        },
+                         
+                        { 
+                            "label" : "0", 
+                            "value" : 0
+                        },
+                        
+                        { 
+                            "label" : "1", 
+                            "value" : 1
+                        } 
+                    ]
+                }
+            ];
+        }
+        
+    </script>
+
+    <style type="text/css">
+    
+        .xChart
+        {
+            position: absolute;
+            left:  50px;
+            right: 50px;
+            top:   200px;
+            bottom: 50px;
+            border: 1px solid blue;
+        }
+        
+    </style>
+
+</head>
+
+<body onload='myLoad();'>
+<div id="main" style="display:none" class="gap">
+
+    <button onclick='location.reload();'>reload</button>
+    <br>
+    
+    <div class='boxBlue gap'>
+        <p>
+            This is a test of the NVD3 javascript chart tool. Specifically the Bar Chart.
+        </p>
+    </div>
+    
+    <div id="barChart" class="xChart">
+        <svg class="fill"></svg>
+    </div>
+    
+</body>
+
+</html>

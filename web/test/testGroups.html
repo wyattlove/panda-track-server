@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+    <script type="text/javascript" src ="../static/version/kodemore/loader/kmResourceLoader.js"></script>
+    <script type="text/javascript" src ="../static/version/app/common/script/myResourceLoader.js"></script>
+
+    <script type="text/javascript">
+
+        function myLoad()
+        {
+            MyResourceLoader.loadTestResources(
+            {
+                onComplete: myInstall
+            });
+        }
+        
+        function myInstall()
+        {
+            $("#main").show();
+        }
+        
+        function myClick()
+        {
+            // Kmu.toast('click');
+        }
+        
+    </script>
+
+    <style type="text/css">
+    </style>
+
+</head>
+
+<body onload="myLoad()">
+<div id="main" style="display:none" class="gap">
+
+    <p>ignore</p>
+    <p>ignore</p>
+    <p>ignore</p>
+    <p>ignore</p>
+    <p>ignore</p>
+    <p>ignore</p>
+    <p>ignore</p>
+    <p>ignore</p>
+    <p>ignore</p>
+    <p>ignore</p>
+    <p>ignore</p>
+    <p>ignore</p>
+
+<div style="position:absolute; top:200px; left:200px; right:100px; bottom:100px;">
+
+    <div class="group groupWrapper groupWrapper_fill">
+    
+        <div class="groupHeader groupHeader_fixed">
+            <div class="groupTitle">
+                title
+            </div>
+            <div class="groupDivider"></div>
+        </div>
+        
+        <div class="groupBody_fixedFooter auto">
+            <div class="pad">
+                <div>body</div>
+                <div>body</div>
+                <div>body</div>
+                <div>body</div>
+                <div>body</div>
+                <div>body</div>
+                <div>body</div>
+                <div>body</div>
+                <div>body</div>
+                <div>body</div>
+                <div>body</div>
+                <div>body</div>
+                <div>body</div>
+                <div>body</div>
+                <div>body</div>
+                <div>body</div>
+                <div>body</div>
+                <div>body</div>
+                <div>body</div>
+                <div>body</div>
+            </div>
+        </div>
+        
+        <div class="groupFooter groupFooter_fixed">
+            <div class="groupDivider"></div>
+            <div class="pad">
+                footer
+            </div>
+        </div>
+        
+    </div>
+
+</div>
+
+
+
+
+<!--
+
+            <div style='border-top: 1px solid #aaa; border-bottom: 1px solid #fff;'></div>
+
+-->
+    
+</div>
+</body>
+
+</html>
