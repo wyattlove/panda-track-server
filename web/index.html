@@ -3,27 +3,59 @@
 <html>
 <head>
     <meta charset="utf-8">
-    
     <meta http-equiv="cache-control"    content="no-cache">
     <meta http-equiv="pragma"           content="no-cache">
     <meta http-equiv="expires"          content="-1">
+    
+    <title>Panda Track</title>
 
+    <!-- jquery -->
     <script src="/static/version/jquery/core/jquery-1.10.2.min.js"></script>
     
+    <!-- jquery ui -->
     <link  href="/static/version/jquery/jquery-ui-1.11.1/jquery-ui.min.css" rel="stylesheet">
     <script src="/static/version/jquery/jquery-ui-1.11.1/jquery-ui.min.js"></script>
 
+    <!-- cookie -->
+    <script src="/static/version/jquery/cookie-2.0.0-pre/js.cookie.js"></script>
+    
+    <!-- history -->
+    <script src="/static/version/jquery/history-1.8.6/scripts/compressed/history.js"></script>
+    <script src="/static/version/jquery/history-1.8.6/scripts/compressed/history.adapter.jquery.js"></script>
+
+    <!-- block ui -->
+    <!-- 
+    <script src="/static/version/jquery/blockUi-2.39/jquery.blockUI.js"></script>
+    -->
+
+    <!-- sprintf -->
+    <script src="/static/version/sprintf-20150506/sprintf.min.js"></script>
+    
+    <!-- kodemore -->
+    <script src="/static/version/app/common/script/kmUtility.js"></script>
+    <script src="/static/version/app/common/script/kmNavigator.js"></script>
+    
+    <!-- css -->
     <link  href="/static/version/app/theme/default/css/reset.css" rel="stylesheet">
     <link  href="/static/version/app/theme/default/css/tools.css" rel="stylesheet">
     <link  href="/static/version/app/theme/default/css/theme.css" rel="stylesheet">
     
-    <link  href="/static/version/app/app.css" rel="stylesheet">
-    <script src="/static/version/app/app.js"></script>
+    <!-- app -->
+    <link  href="/static/version/app/myApp.css" rel="stylesheet">
+    <script src="/static/version/app/myApp.js"></script>
+
+    <!-- pages -->
+    <script src="/static/version/app/myLoginPage.js"></script>
+    <script src="/static/version/app/myWelcomePage.js"></script>
+    <script src="/static/version/app/myDocBrowserPage.js"></script>
+    
 </head>
 
 <body>
     <div class="boxGray pad">
         <button onclick="handleTest();">test</button>
+        <button onclick="handleRefresh();">refresh</button>
+        <button onclick="handleLogout();">logout</button>
     </div>
     <div id="page">Loading...</div>
 </body>

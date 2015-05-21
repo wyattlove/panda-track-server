@@ -29,9 +29,6 @@ public class MyGetVendorsAction
         String sessionUid = req.getString("sessionUid");
         touchSession(sessionUid);
 
-        // remove_wyatt: print
-        System.out.println("MyGetVendorsAction.handle");
-
         KmJsonMap res;
         res = newOkResponse();
 
@@ -39,7 +36,6 @@ public class MyGetVendorsAction
         arr = res.setArray("vendors");
 
         KmList<MyVendor> v = getAccess().getVendorDao().findAll();
-        System.out.println("    v.size(): " + v.size());
         for ( MyVendor e : v )
         {
             KmJsonMap map;

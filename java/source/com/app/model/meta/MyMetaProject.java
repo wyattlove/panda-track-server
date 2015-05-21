@@ -62,7 +62,7 @@ public class MyMetaProject
 
     public static String getHelp()
     {
-        return "Almost everything is managed within the context of a project.\nFor example: the depots, product catalogs, and orders are all managed by project.  Although\ntwo projects may define depots with the same name, each project will actually have their\nown separate depot.";
+        return "Almost everything is managed within the context of a project.";
     }
 
     //##################################################

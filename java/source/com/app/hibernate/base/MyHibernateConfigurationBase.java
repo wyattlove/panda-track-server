@@ -21,6 +21,7 @@ public abstract class MyHibernateConfigurationBase
     @Override
     protected void addCustomMappings()
     {
+        addMapping("action");
         addMapping("applicationLog");
         addMapping("applicationLogTrace");
         addMapping("autoSignIn");
@@ -42,11 +43,13 @@ public abstract class MyHibernateConfigurationBase
         addMapping("product");
         addMapping("project");
         addMapping("region");
+        addMapping("section");
         addMapping("serverSession");
         addMapping("settings");
         addMapping("shipCarrier");
         addMapping("shipMethod");
         addMapping("skill");
+        addMapping("topic");
         addMapping("user");
         addMapping("userActivation");
         addMapping("vendor");

@@ -1,0 +1,54 @@
+model
+: name      = section
+: help...
+    ===
+    Each topic (doc) is organized into a list of sections.
+    Each section is composed of a title and body.
+    Actions are always attached to sections.
+    ===   
+
+database
+: alias = se
+
+    index
+    : name      = topic
+    : on        = topic
+
+attributes
+
+    field
+    : name          = uid
+    : help          = The globally unique identifier.
+    : type          = uid
+    : default       = newUid()
+    : primaryKey    = true
+    : required      = true
+
+    association
+    : name          = topic
+    : help          = The topic to which this topic belongs.
+    : modelName     = topic
+    : relation      = parent
+    : required      = true
+
+        delegate
+        : fieldName = name
+
+    field
+    : name          = name
+    : help          = The display name.
+    : type          = name
+    : required      = required
+
+    field
+    : name          = sequence
+    : help          = Used to sort sections within a topic.
+    : type          = sequence
+    : required      = required
+
+    collection
+    : name          = action
+    : comment       = The actions for this topic.
+    : relation      = children
+    : elementModel  = action
+    : elementField  = section

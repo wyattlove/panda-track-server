@@ -143,5 +143,15 @@
                 <one-to-many class="com.app.model.MyShipCarrier"/>
         </bag>
 
+        <bag
+            name="topics"
+            inverse="false"
+            cascade="all-delete-orphan"
+            >
+                <cache usage="read-write"/>
+                <key column="projectUid"/>
+                <one-to-many class="com.app.model.MyTopic"/>
+        </bag>
+
     </class>
 </hibernate-mapping>

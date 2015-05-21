@@ -29,6 +29,25 @@ public class MyDaoRegistry
     }
 
     //##################################################
+    //# action
+    //##################################################
+
+    public MyActionDao getActionDao()
+    {
+        return new MyActionDao();
+    }
+
+    public KmList<MyAction> findAllActions()
+    {
+        return getActionDao().findAll();
+    }
+
+    public MyAction findActionUid(String e)
+    {
+        return getActionDao().findUid(e);
+    }
+
+    //##################################################
     //# applicationLog
     //##################################################
 
@@ -428,6 +447,25 @@ public class MyDaoRegistry
     }
 
     //##################################################
+    //# section
+    //##################################################
+
+    public MySectionDao getSectionDao()
+    {
+        return new MySectionDao();
+    }
+
+    public KmList<MySection> findAllSections()
+    {
+        return getSectionDao().findAll();
+    }
+
+    public MySection findSectionUid(String e)
+    {
+        return getSectionDao().findUid(e);
+    }
+
+    //##################################################
     //# serverSession
     //##################################################
 
@@ -520,6 +558,25 @@ public class MyDaoRegistry
     public MySkill findSkillUid(String e)
     {
         return getSkillDao().findUid(e);
+    }
+
+    //##################################################
+    //# topic
+    //##################################################
+
+    public MyTopicDao getTopicDao()
+    {
+        return new MyTopicDao();
+    }
+
+    public KmList<MyTopic> findAllTopics()
+    {
+        return getTopicDao().findAll();
+    }
+
+    public MyTopic findTopicUid(String e)
+    {
+        return getTopicDao().findUid(e);
     }
 
     //##################################################

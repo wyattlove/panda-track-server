@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+###############################################################
+###############################################################
+##
+##  AUTO GENERATED - DO NOT EDIT
+##
+###############################################################
+###############################################################
+-->
+
+<hibernate-mapping
+    default-access="field">
+
+    <class
+        name="com.app.model.MySection"
+        table="section"
+        >
+
+        <cache usage="read-write"/>
+
+        <id
+            name="uid"
+            column="uid"
+            type="string"
+            >
+            <generator class="assigned"/>
+        </id>
+
+        <version
+            name="lockVersion"
+            column="lockVersion"
+            type="integer"
+            />
+
+        <property
+            name="name"
+            column="name"
+            type="string"
+            />
+
+        <property
+            name="sequence"
+            column="sequence"
+            type="integer"
+            />
+
+        <many-to-one
+            name="topic"
+            column="topicUid"
+            class="com.app.model.MyTopic"
+            cascade="none"
+            />
+
+        <bag
+            name="actions"
+            inverse="false"
+            cascade="all-delete-orphan"
+            >
+                <cache usage="read-write"/>
+                <key column="sectionUid"/>
+                <one-to-many class="com.app.model.MyAction"/>
+        </bag>
+
+    </class>
+</hibernate-mapping>

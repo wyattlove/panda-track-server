@@ -1,0 +1,38 @@
+model
+: name      = notification
+: help...
+    ===
+    A notification of some action.
+    Notifications are used to manage the list of UNread
+    events in the user's inbox.  Notifications are NOT
+    persistent and may be deleted after they have been
+    acknowledged. 
+    ===
+    
+database
+: alias = no
+
+    index
+    : name      = action
+    : on        = action
+
+attributes
+
+    field
+    : name          = uid
+    : help          = The globally unique identifier.
+    : type          = uid
+    : default       = newUid()
+    : primaryKey    = true
+    : required      = true
+
+    association
+    : name          = action
+    : help          = The action we are notifying about.
+    : modelName     = action
+    : relation      = parent
+    : required      = true
+
+        delegate
+        : fieldName = name
+

@@ -12,7 +12,14 @@ var KmNavigator = {};
 KmNavigator.defaultTitle = "";
 
 /**
+ * The handler to be called each time the state change is triggered.
+ * The client must set this to a function.  
+ */
+KmNavigator.handler;
+
+/**
  * Called once to initialize the navigator.
+ * If options are provided, they are passed to pushPage.
  */
 KmNavigator.init = function(options)
 {
@@ -92,13 +99,17 @@ KmNavigator.pushUrl = function(url)
 
 KmNavigator.printCurrentPage = function()
 {
-    Kmu.ajax(
+    var dir = KmNavigator.getDirection();
+    KmNavigator.previousPrintDepth = KmNavigator.getDepth();    
+
+    var fn = KmNavigator.handler;
+    if ( fn )
     {
-        action: "_printWindowLocation",
-        direction: KmNavigator.getDirection()
-    });
+        fn(dir);
+        return;
+    }
     
-	KmNavigator.previousPrintDepth = KmNavigator.getDepth();    
+    alert('KmNavigator.handler is undefined.');
 }
 
 KmNavigator.getDirection = function()

@@ -1,0 +1,48 @@
+model
+: name      = topic
+: help...
+    ===
+    Information is organized into topics within a project.
+    Each topic may contain multiple sections.
+    A topic is similar to a document.
+    ===   
+
+database
+: alias = t
+
+    index
+    : name      = project
+    : on        = project
+
+attributes
+
+    field
+    : name          = uid
+    : help          = The globally unique identifier.
+    : type          = uid
+    : default       = newUid()
+    : primaryKey    = true
+    : required      = true
+
+    field
+    : name          = name
+    : help          = The display name.
+    : type          = name
+    : required      = required
+
+    association
+    : name          = project
+    : help          = The project to which this topic belongs.
+    : modelName     = project
+    : relation      = parent
+    : required      = true
+
+        delegate
+        : fieldName = name
+
+    collection
+    : name          = section
+    : comment       = The sections for this topic.
+    : relation      = children
+    : elementModel  = section
+    : elementField  = topic

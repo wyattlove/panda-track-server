@@ -36,4 +36,5 @@ public interface MyProjectDaoConstantsIF
     String PRODUCTS = "products";
     String CATEGORIES = "categories";
     String SHIP_CARRIERS = "shipCarriers";
+    String TOPICS = "topics";
 }

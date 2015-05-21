@@ -71,16 +71,18 @@ public abstract class MyAction
         return MyGlobals.getAccess();
     }
 
-    protected void touchSession(String uid)
+    protected MyServerSession touchSession(String uid)
     {
         MyServerSession ss = getAccess().getServerSessionDao().findUid(uid);
+
         if ( ss == null )
-            throw newError("Session timeout");
+            throw newError("Session timeout (none)");
 
         if ( ss.isStale() )
-            throw newError("Session timeout");
+            throw newError("Session timeout (stale)");
 
         ss.touch();
+        return ss;
     }
 
     protected KmJsonMap newOkResponse()

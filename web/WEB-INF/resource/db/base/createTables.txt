@@ -7,6 +7,22 @@
 ###############################################################
 
 
+DROP TABLE IF EXISTS action;
+CREATE TABLE action
+(
+    uid varchar(30),
+    title varchar(50),
+    description varchar(100),
+    typeCode char(1),
+    lockVersion int,
+    sectionUid varchar(30),
+    ownerUid varchar(30),
+    assigneeUid varchar(30),
+    primary key (uid)
+) ENGINE = INNODB;
+create index section on action (sectionUid);
+
+
 DROP TABLE IF EXISTS applicationLog;
 CREATE TABLE applicationLog
 (
@@ -284,6 +300,19 @@ CREATE TABLE region
 create index region on region (projectUid, name);
 
 
+DROP TABLE IF EXISTS section;
+CREATE TABLE section
+(
+    uid varchar(30),
+    name varchar(50),
+    sequence int,
+    lockVersion int,
+    topicUid varchar(30),
+    primary key (uid)
+) ENGINE = INNODB;
+create index topic on section (topicUid);
+
+
 DROP TABLE IF EXISTS serverSession;
 CREATE TABLE serverSession
 (
@@ -345,6 +374,18 @@ CREATE TABLE skill
     primary key (uid)
 ) ENGINE = INNODB;
 create index projectName on skill (projectUid, name);
+
+
+DROP TABLE IF EXISTS topic;
+CREATE TABLE topic
+(
+    uid varchar(30),
+    name varchar(50),
+    lockVersion int,
+    projectUid varchar(30),
+    primary key (uid)
+) ENGINE = INNODB;
+create index project on topic (projectUid);
 
 
 DROP TABLE IF EXISTS user;

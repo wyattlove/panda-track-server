@@ -50,6 +50,7 @@ public abstract class MyProjectBase
     private List<MyProduct> products;
     private List<MyCategory> categories;
     private List<MyShipCarrier> shipCarriers;
+    private List<MyTopic> topics;
 
     //##################################################
     //# constructor
@@ -69,6 +70,7 @@ public abstract class MyProjectBase
         products = new ArrayList<>();
         categories = new ArrayList<>();
         shipCarriers = new ArrayList<>();
+        topics = new ArrayList<>();
     }
 
     //##################################################
@@ -856,6 +858,73 @@ public abstract class MyProjectBase
     }
 
     //##################################################
+    //# Topics (collection)
+    //##################################################
+
+    public KmCollection<MyTopic> getTopics()
+    {
+        return new KmHibernateCollection<>(
+            getBaseTopics(),
+            (MyProject)this,
+            MyTopic.Meta.Project.getAdaptor());
+    }
+
+    public boolean hasTopics()
+    {
+        return !getBaseTopics().isEmpty();
+    }
+
+    public int getTopicCount()
+    {
+        return getBaseTopics().size();
+    }
+
+    public List<MyTopic> getBaseTopics()
+    {
+        return topics;
+    }
+
+    public MyTopic addTopic()
+    {
+        MyTopic e;
+        e = new MyTopic();
+        getTopics().add(e);
+        return e;
+    }
+
+    public void addTopic(MyTopic e)
+    {
+        getTopics().add(e);
+    }
+
+    public boolean removeTopic(MyTopic e)
+    {
+        return getTopics().remove(e);
+    }
+
+    public boolean removeTopicUid(String myUid)
+    {
+        MyTopic e = findTopicUid(myUid);
+        if ( e == null )
+            return false;
+
+        return removeTopic(e);
+    }
+
+    public MyTopic findTopicUid(String myUid)
+    {
+        for ( MyTopic e : getBaseTopics() )
+            if ( e.hasUid(myUid) )
+                return e;
+        return null;
+    }
+
+    public void clearTopics()
+    {
+        getTopics().clear();
+    }
+
+    //##################################################
     //# validate
     //##################################################
 
@@ -941,6 +1010,11 @@ public abstract class MyProjectBase
         shipCarriers = new ArrayList<>();
         for ( MyShipCarrier e : old_shipCarriers )
             addShipCarrier(copy(e));
+
+        List<MyTopic> old_topics = topics;
+        topics = new ArrayList<>();
+        for ( MyTopic e : old_topics )
+            addTopic(copy(e));
     }
 
     //##################################################

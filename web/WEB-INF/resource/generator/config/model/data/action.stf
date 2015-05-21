@@ -1,0 +1,91 @@
+model
+: name      = action
+: help...
+    ===
+    Each action is assigned to a single person for a 
+    single purpose.  Each action has a relatively short
+    title, and support for a longer free form description
+    when needed.
+    ===   
+
+database
+: alias = ac
+
+    index
+    : name      = section
+    : on        = section
+
+attributes
+
+    field
+    : name          = uid
+    : help          = The globally unique identifier.
+    : type          = uid
+    : default       = newUid()
+    : primaryKey    = true
+    : required      = true
+
+    association
+    : name          = section
+    : help          = The section to which this topic belongs.
+    : modelName     = section
+    : relation      = parent
+    : required      = true
+
+        delegate
+        : fieldName = name
+
+    field
+    : name          = title
+    : help          = A short single line non-unique description.
+    : type          = name
+    : required      = false
+
+    field
+    : name          = description
+    : help          = The free-form multi-line description.
+    : type          = multiline1000
+    : required      = false
+
+    field
+    : name      = typeCode
+    : help      = Determines the attributes and business rules.
+    : type      = letterCode
+    : required  = true
+    : default   = MyActionType.Task.getCode() 
+
+        enum
+            value(#A Alert)
+            value(#C Comment)
+            value(#F Fyi)
+            value(#N Notify)
+            value(#Q Question)
+            value(#T Task)
+
+    association
+    : name          = owner
+    : help          = The user that created, or currently owns, this action.
+    : modelName     = user
+    : relation      = reference
+    : required      = true
+
+        delegate
+        : fieldName = uid
+
+        delegate
+        : fieldName = name
+
+    
+    association
+    : name          = assignee
+    : help          = The user assigned to complete this task.
+    : modelName     = user
+    : relation      = reference
+    : required      = true
+
+        delegate
+        : fieldName = uid
+        
+        delegate
+        : fieldName = name
+

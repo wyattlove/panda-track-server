@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+###############################################################
+###############################################################
+##
+##  AUTO GENERATED - DO NOT EDIT
+##
+###############################################################
+###############################################################
+-->
+
+<hibernate-mapping
+    default-access="field">
+
+    <class
+        name="com.app.model.MyAction"
+        table="action"
+        >
+
+        <cache usage="read-write"/>
+
+        <id
+            name="uid"
+            column="uid"
+            type="string"
+            >
+            <generator class="assigned"/>
+        </id>
+
+        <version
+            name="lockVersion"
+            column="lockVersion"
+            type="integer"
+            />
+
+        <property
+            name="title"
+            column="title"
+            type="string"
+            />
+
+        <property
+            name="description"
+            column="description"
+            type="string"
+            />
+
+        <property
+            name="typeCode"
+            column="typeCode"
+            type="string"
+            />
+
+        <many-to-one
+            name="section"
+            column="sectionUid"
+            class="com.app.model.MySection"
+            cascade="none"
+            />
+
+        <many-to-one
+            name="owner"
+            column="ownerUid"
+            class="com.app.model.MyUser"
+            cascade="none"
+            />
+
+        <many-to-one
+            name="assignee"
+            column="assigneeUid"
+            class="com.app.model.MyUser"
+            cascade="none"
+            />
+
+    </class>
+</hibernate-mapping>

@@ -391,6 +391,20 @@ public class MyProjectCriteria
     }
 
     //##################################################
+    //# collection (Topics)
+    //##################################################
+
+    public MyTopicCriteria joinToTopics()
+    {
+        return new MyTopicCriteria(joinTo(TOPICS));
+    }
+
+    public MyTopicCriteria leftJoinToTopics()
+    {
+        return new MyTopicCriteria(leftJoinTo(TOPICS));
+    }
+
+    //##################################################
     //# junction
     //##################################################
 

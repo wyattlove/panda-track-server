@@ -285,6 +285,17 @@ Kmu.repeat = function(s, n)
     return result;
 }
 
+Kmu.hasValue = function(s)
+{
+    return s && s.length > 0;
+}
+
+Kmu.isEmpty = function(s)
+{
+    return !s || s.length == 0;
+}
+
+
 //**********************************************************
 //** utility
 //**********************************************************
@@ -786,24 +797,34 @@ Kmu.addSelectOptions = function(select, options)
  * Add an option to the end of the select.
  * The parameter must have attributes for "text" and "value".
  */
-Kmu.addSelectOption = function(select, o)
+Kmu.addSelectOption = function(sel, o)
 {
-    Kmu.addSelectOptionTextValue(select, o.text, o.value);
+    Kmu.addSelectOptionTextValue(sel, o.text, o.value);
 }
 
 /*
  * Add an option to the end of the select.
  */
-Kmu.addSelectOptionTextValue = function(select, text, value)
+Kmu.addSelectOption = function(sel, text, value)
 {
     var e;
-    e = document.createElement('option');
-    e.text = text;
-    e.value = value;
+    e = $("<option>")
+    e.text(text);
+    e.attr("value", value)
     
-    var s;
-    s = $(select).first().get(0);
-    s.add(e);
+    $(sel).append(e);
+}
+
+/*
+ * Add options to the select.  Add one option for each element
+ * in the array, using the named attributes.
+ */
+Kmu.addSelectOptions = function(sel, arr, textAttr, valueAttr)
+{
+    $.each(arr, function(index, e) 
+    {
+        Kmu.addSelectOption(sel, e[textAttr], e[valueAttr]);
+    });
 }
 
 /* 
@@ -815,6 +836,7 @@ Kmu.clearSelectOptions = function(select)
     while ( s.length )
         s.remove(0);
 }
+
 
 //**********************************************************
 //** buttons
@@ -1115,7 +1137,8 @@ Kmu.unblockControl = function(sel)
  * Clear the default css.  This allows the css to be defined
  * using the class .blockMsg in an external (themed) stylesheet.
  */
-$.blockUI.defaults.css = {};
+// fixme
+// $.blockUI.defaults.css = {};
 
 /*
  * The following can be used to automatically block the entire
@@ -1607,5 +1630,25 @@ Kmu.dmsRenumber = function()
             pri.append("[" + (index+1) + "]");
         });
     });
+}
+
+//**********************************************************
+//** query string
+//**********************************************************
+
+/**
+ * Get the value of the query parameter from the window's location.
+ */
+Kmu.getQueryValue = function(name)
+{
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i=0; i<vars.length; i++) 
+    {
+        var e = vars[i].split("=");
+        if(e[0] == name)
+            return e[1];
+    }
+    return false;
 }
 

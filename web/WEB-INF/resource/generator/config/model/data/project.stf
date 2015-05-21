@@ -3,9 +3,6 @@ model
 : help...
     ===
     Almost everything is managed within the context of a project.
-    For example: the depots, product catalogs, and orders are all managed by project.  Although
-    two projects may define depots with the same name, each project will actually have their
-    own separate depot.
     ===   
 
 database
@@ -100,4 +97,10 @@ attributes
     : relation      = children
     : elementModel  = shipCarrier
     : elementField  = project
-    
+
+    collection
+    : name          = topic
+    : comment       = The topics for this project.
+    : relation      = children
+    : elementModel  = topic
+    : elementField  = project
